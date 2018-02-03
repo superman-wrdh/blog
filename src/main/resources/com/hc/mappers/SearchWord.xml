@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hc.mapper.SearchWordMapper">
+
+	<select id="list" resultType="com.hc.entity.SearchWord">
+		select * from t_searchword
+	</select>
+
+	<select id="findByWord" parameterType="String" resultType="com.hc.entity.SearchWord">
+		select * from t_searchword
+		where word=#{word}
+	</select>
+
+	<update id="update" parameterType="SearchWord">
+		update t_searchword
+		<set>
+			<if test="word!=null and word!='' ">
+				word=#{word},
+			</if>
+			<if test="count!=null ">
+				`count`=#{count},
+			</if>
+			<if test="type!=null ">
+				`type`=#{type},
+			</if>
+			<if test="time!=null and time!='' ">
+				`time`=now(),
+			</if>
+		</set>
+		where id=#{id}
+	</update>
+
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="SearchWord">
+		insert into t_searchword values(null,#{word},#{count},#{type},now())
+	</insert>
+</mapper> 

@@ -1,0 +1,53 @@
+/* =s Reset */
+html {
+font-size: 62.5%;
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+-webkit-overflow-scrolling: touch;
+-webkit-text-size-adjust: 100%;
+-ms-text-size-adjust: 100%;
+-ms-overflow-style: -ms-autohiding-scrollbar;
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+li{list-style:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+/* =e Reset */
+
+/*中间部分*/
+.ag7-main{padding-top: 60px; width: 1140px; margin: 0 auto; padding-bottom: 70px;}
+.ag7-main .phone-index-banner{display: none;}
+
+/*左侧栏*/
+.ag7-cont{width: 680px; float: left;}
+
+.wrap{width:1000px; margin-left:auto; margin-right:auto;}  
+/*公共*/
+.yahei{font-family:'\5FAE\8F6F\96C5\9ED1';}
+.songti{font-family:"NSimSun","SimSun",Arial;}
+
+/*首页右侧*/
+.aside{width:280px; float:right;}
+
+/*20141212*/
+.ag7-bannerslide{position: relative; margin-bottom: 50px; }
+.ag7-bannerslide .slidebox{position: relative; height: 440px;}
+.ag7-bannerslide .slidebox li{display:block; position: absolute; width:100%; height: 100%; left:0px; top:0px;}
+.ag7-bannerslide a img{display:block; max-width: 100%;}
+.ag7-bannerslide .slideinfo{width:310px; height: 160px; position: absolute; left:0px; bottom:50px; background:rgba(0,0,0,0.5); z-index: 10;}
+.ag7-bannerslide .slidetitle{height: 70px; padding:25px; color: #fff; font-family: 微软雅黑;}
+.ag7-bannerslide .slidetitle h2{font-size: 30px; height:50px; line-height: 50px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.ag7-bannerslide .slidetitle h3{font-size: 18px;}
+.ag7-bannerslide .slidelist{height:22px;width:100%; padding:9px 0;  background:rgba(0,0,0,0.5); position: relative;}
+.ag7-bannerslide .slidelist ul{text-align: center;}
+.ag7-bannerslide .slidelist ul li{display: inline-block; margin:0 4px; width: 50px; height: 22px; cursor: pointer;}
+.ag7-bannerslide .slidelist .mask{width:54px; height: 27px; position: absolute; left: 32px; top:6px; background:url(mask_03.png) no-repeat center center; display: block;}
+
+
+.phone-index-banner{position: relative;}
+.phone-index-banner img{display: block;}
+.phone-index-banner h3{position: absolute; width: 100%; bottom:0px; font-size:14px; height: 40px; padding:0 10px; -webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box; line-height: 40px; background:rgba(0,0,0,.5); color: #fff; font-family: 微软雅黑;}
