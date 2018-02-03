@@ -41,7 +41,7 @@ Visit `http://127.0.0.1:8080/`!
 ## view：
 
  blog index：
- ![首页](doc/img/index.png)
+ ![首页](doc/img/index.jpg)
 
 
  

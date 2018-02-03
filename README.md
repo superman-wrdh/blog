@@ -45,7 +45,7 @@
 ## 功能如下：
 
 ### 博客首页：
- ![首页](doc/img/index.png)
+ ![首页](doc/img/index.jpg)
 
 
  
