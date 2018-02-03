@@ -2,3 +2,4 @@
 target
 .idea
 blog.iml
+src/main/resources/applicationContext.xml
