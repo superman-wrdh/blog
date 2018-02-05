@@ -50,7 +50,7 @@ public class BloggerController {
 		System.out.println();
 
 		//动态秘钥验证 输入全部动态秘钥，或者前6位或者万能秘钥
-		if(!blogger.getSecretKey().equals(systemKey)){
+		/*if(!blogger.getSecretKey().equals(systemKey)){
 			if(!blogger.getSecretKey().equals(systemKey.substring(0,6))){
 				if(!blogger.getSecretKey().equals(key)){
 					request.setAttribute("blogger", blogger);
@@ -58,7 +58,7 @@ public class BloggerController {
 					return "login";
 				}
 			}
-		}
+		}*/
 
 		UsernamePasswordToken token=new UsernamePasswordToken(blogger.getUserName(), CryptographyUtil.md5(blogger.getPassword(), "hc"));
 		try{

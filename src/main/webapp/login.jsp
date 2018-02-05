@@ -39,9 +39,9 @@
                 <div>
 					<input type="password" name="password" class="password" placeholder="密码" oncontextmenu="return false" onpaste="return false" />
                 </div>
-                <div>
+                <%--<div>
                     <input type="text" name="secretKey" class="password" placeholder="动态秘钥" autocomplete="off"/>
-                </div>
+                </div>--%>
                 <div>
                     <span style="color: red">${errorInfo }</span>
                 </div>
