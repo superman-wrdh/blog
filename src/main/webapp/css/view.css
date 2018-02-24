@@ -1,6 +1,6 @@
 @charset "gb2312";
 /* view */
-#index_view { width: 640px; float: left; margin: 20px 0; overflow: hidden; color: #333; border-radius: 6px; background:#EAEAEA; padding: 10px; }
+#index_view { width: 640px; float: left; margin: 20px 0; overflow: hidden; color: #333; border-radius: 6px; background:#EAEAEA; padding: 10px;font-size: 16px }
 h2.t_nav { border-bottom: #247979 3px solid; font-size: 12px; font-weight: normal; line-height: 48px; height: 40px }
 h2.t_nav a { padding: 10px; color: #fff; }
 h2.t_nav a:first-child { background: #247979; }
