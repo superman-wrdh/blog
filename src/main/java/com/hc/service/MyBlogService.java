@@ -106,6 +106,20 @@ public class MyBlogService {
     }
 
     /**
+     * 获取上一篇 下一篇
+     * @param id
+     * @return
+     */
+    public Map<String,Blog> getLastAndPrivious(int id){
+        Blog last = blogMapper.getLastBlog(id);
+        Blog next = blogMapper.getNextBlog(id);
+        Map<String,Blog> r = new HashMap<>();
+        r.put("last",last);
+        r.put("next",next);
+        return r;
+    }
+
+    /**
      * 获取轮播图
      */
     public List<String> getBanner(){

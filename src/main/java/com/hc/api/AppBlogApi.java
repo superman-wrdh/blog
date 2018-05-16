@@ -74,6 +74,16 @@ public class AppBlogApi extends BaseController {
     }
 
     /**
+     * 获取上一篇 下一篇
+     */
+    @RequestMapping("/next_and_previous/{id}")
+    @ResponseBody
+    public Object next_and_previous(@PathVariable("id") Integer id){
+        Map<String, Blog> lastAndPrivious = myBlogService.getLastAndPrivious(id);
+        return lastAndPrivious;
+    }
+
+    /**
      * 按月份分类
      */
     @RequestMapping("getByTime")
