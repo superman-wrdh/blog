@@ -13,13 +13,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="countList" resultMap="BlogTypeResult">
 		SELECT
-		bt.id,
-		bt.typeName as typeName ,
-		count(*) AS blogCount
+		b.typeId as id,
+		ty.typeName,
+		count(b.typeId) as blogCount
 		FROM
-			t_blogtype bt
-		LEFT JOIN t_blog ON t_blog.typeId = bt.id
-		GROUP BY bt.id
+		t_blog b
+		LEFT JOIN t_blogtype AS ty on ty.id = b.typeId
+		GROUP BY b.typeId
 	</select>
 	
 	<select id="findById" parameterType="Integer" resultMap="BlogTypeResult">
