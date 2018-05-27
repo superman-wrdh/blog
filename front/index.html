@@ -15,6 +15,8 @@
 <link href="css/m.css" rel="stylesheet">
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.easyfader.min.js"></script>
+<script src="js/echarts.min.js"></script>
+<script src="js/echarts-wordcloud.min.js"></script>
 <!--[if lt IE 9]>
 <script src="js/modernizr.js"></script>
 <![endif]-->
@@ -41,13 +43,13 @@ window.onload = function ()
   <div id="mnav">
     <h2><span class="navicon"></span></h2>
     <ul>
-      <!--<li><a href="index.html">网站首页</a></li>-->
-      <!--<li><a href="about.html">关于我</a></li>-->
-      <!--<li><a href="share.html">模板分享</a></li>-->
-      <!--<li><a href="list.html">学无止境</a></li>-->
-      <!--<li><a href="list.html">慢生活</a></li>-->
-      <!--<li><a href="link.html">博客导航</a></li>-->
-      <!--<li><a href="gbook.html">留言</a></li>-->
+      <li><a href="index.html">网站首页</a></li>
+      <li><a href="https://superman-wrdh.github.io/">关于我</a></li>
+      <li><a href="http://www.66super.com/search/">超锅快搜</a></li>
+      <li><a href="http://www.66super.com/download/">下载</a></li>
+      <li><a href="index.html">慢生活</a></li>
+      <li><a href="index.html">博客导航</a></li>
+      <li><a href="gbook.html">留言</a></li>
     </ul>
   </div>
   <div class="topnav">
@@ -90,23 +92,32 @@ $(function() {
   </div>
 
   <div class="rbox">
+    <div class="paihang">
+      <h2 class="hometitle" id="s_title">搜索</h2>
+      <ul id="search">
+        <form>
+        <input style="width: 60%;height: 30px" type="text" id= "searchword" placeholder="搜索从这里开始...">
+        <button style="width: 10%;height: 26px;background: no-repeat url('images/btn_search_box.gif');border: none;margin-top: 5px" type="button" id="bt_search">&nbsp;</button>
+        </form>
+      </ul>
+    </div>
 
-      <div class="paihang">
-        <h2 class="hometitle" id="search_t">搜索</h2>
-        <ul id="search">
-          <div class="search d1">
-            <form>
-              <input type="text" id= "searchword" placeholder="搜索从这里开始...">
-              <button type="button" id="bt_search"></button>
-            </form>
-          </div>
-        </ul>
-      </div>
+      <!--<div class="paihang">-->
+        <!--<h2 class="hometitle" id="search_t">搜索</h2>-->
+        <!--<ul id="search">-->
+          <!--<div class="search d1">-->
+            <!--<form>-->
+              <!--<input type="text" id= "searchword" placeholder="搜索从这里开始...">-->
+              <!--<button type="button" id="bt_search"></button>-->
+            <!--</form>-->
+          <!--</div>-->
+        <!--</ul>-->
+      <!--</div>-->
 
      <div class="paihang">
        <h2 class="hometitle">热词搜索</h2>
        <ul id="hot">
-          正在开发中
+         <div id="main" style="width: 90%;height:260px;"></div>
        </ul>
      </div>
 

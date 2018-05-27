@@ -73,7 +73,7 @@ $(document).ready(function () {
             console.log(res)
             //"<li><a href="/" title="云南之行――丽江古镇玉龙雪山">云南之行――丽江古镇玉龙雪山</a></li>"
             for(var i = 0;i<res.length;i++){
-                var li = "<li><a href='info.html?bid="+res[i]['id']+"' title='云南之行――丽江古镇玉龙雪山'>"+res[i]['title']+"</a></li>"
+                var li = "<li><a href='info.html?bid="+res[i]['id']+"' title='文章'>"+res[i]['title']+"</a></li>"
                 $("#about_blog").append(li)
             }
 
