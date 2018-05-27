@@ -79,6 +79,9 @@ public class MyBlogService {
      * lucene搜索分词
      */
     public PageBean search(String word, Integer page) throws Exception {
+        SearchWord searchWord = new SearchWord();
+        searchWord.setWord(word);
+        insertOrUpdate(searchWord);
         if (page <= 0 || page == null) {
             page = 1;
         }
