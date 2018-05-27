@@ -45,6 +45,7 @@ h3.blogtitle { line-height: 30px; height: 30px; margin: 10px 0; }
 .newblogs li:hover .line { width: 100%; }
 .rbox { width: 30%; overflow: hidden; float: right }
 .paihang { background: #FFF; overflow: hidden; margin-bottom: 20px }
+.paihang_type { background: #FFF; overflow: hidden; margin-bottom: 15px }
 .paihang ul { padding: 10px; }
 .paihang ul li { border-bottom: solid 1px #EAEAEA; font-size: 14px; margin: 0 0 10px 0; padding: 0 0 10px 0; overflow:hidden }
 .paihang ul li b { height: 30px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; display: block; }

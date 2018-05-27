@@ -1,4 +1,14 @@
 $(document).ready(function () {
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+
+    var type_id = GetQueryString('type_id')
+    var releaseDateStr = GetQueryString('releaseDateStr')
+    var d_tmp = decodeURI(releaseDateStr)
     p = 1
     var host = "http://www.66super.com"
 
@@ -11,9 +21,10 @@ $(document).ready(function () {
             url: url,
             type: 'post',
             dataType: 'json',
-            contentType: "application/json",
+            contentType: "application/json;charset=UTF-8",
             data: JSON.stringify(data),
             async: false,
+            scriptCharset: 'utf-8',
             success: function (r) {
 
                 var res = r.data.results;
@@ -30,7 +41,6 @@ $(document).ready(function () {
 
                 }
                 if (res.length < 10) {
-                    console.log('---没有数据了---')
                     $("#load_div").text(" 没 有 数 据 了 ")
                     setTimeout(function () {
                         $("#next_page").remove();
@@ -83,7 +93,7 @@ $(document).ready(function () {
                 } else {
                     img = img[0]
                 }
-                var li = "<li><b><a href=\"info.html?bid=" + res[i]['id'] + "\" target=\"_blank\">" + res[i]['title'] + "</a></b>\n" +
+                var li = "<li><b><a href=\"info.html?bid=" + res[i]['id'] + "\" target=\"_blank\">" + res[i]['title'] +"("+res[i]['clickHit']+")"+ "</a></b>\n" +
                     " <p><i><img src=\"images/t02.jpg\" /></i><a href=\"info.html?bid=" + res[i]['id'] + "\"" + " target=\"_blank\">" + res[i]['summary'].substring(0, 50) + "</a></p>\n" +
                     " </li>"
                 $('#hot_list').append(li);
@@ -128,7 +138,7 @@ $(document).ready(function () {
         var myChart = echarts.init(document.getElementById('main'));
         option = {
             title: {
-                text: '超哥博客热词搜索',
+                text: '',
                 link: 'https://www.baidu.com/s?wd=' + encodeURIComponent('ECharts'),
                 x: 'center',
                 textStyle: {
@@ -197,10 +207,9 @@ $(document).ready(function () {
             dataType: 'json',
             async: false,
             success: function (r) {
-                console.log("获取的数据");
-                console.log(r);
+
                 var arr = r.data;
-                console.log(arr)
+
                 for (var i in arr) {
                     var tmp = arr[i];
                     JosnList.push({
@@ -224,5 +233,93 @@ $(document).ready(function () {
     }
 
     worldcloud()
+    $("#hot_title").click(function () {
+        worldcloud()
+    })
+
+    function RenderBlogType() {
+        //************************************************
+        $.ajax({
+            url: host + '/api/blog/getAllType.do',
+            type: 'get',
+            dataType: 'json',
+            async: false,
+            success: function (r) {
+
+                var arr = r.data;
+
+                for (var i in arr) {
+                    var tmp = arr[i];
+                    var li = "<li style='height: 22px'><b><a href='index.html?type_id=" + tmp['id'] + "'" + "target='_self'>" + tmp['typeName'] + "(" + tmp['blogCount'] + ")" + "</a></b>"
+                    $("#type_list").append(li)
+
+                }
+
+            }
+        });
+        //******************************************************
+    }
+
+    RenderBlogType()
+
+    if (type_id !== null) {
+        //清空原来的列表
+        $("#art_list").children("li").remove()
+
+        //ajax 后台请求 获取数据
+        p = 1
+        search_url = host + '/api/blog/list.do'
+        load_index_list({
+            "page": p,
+            "blogType": type_id
+        }, search_url)
+    }
+
+    function RenderBlogDate() {
+        //************************************************
+        $.ajax({
+            url: host + '/api/blog/getByTime.do',
+            type: 'get',
+            dataType: 'json',
+            async: false,
+            success: function (r) {
+
+
+                var arr = r.data;
+
+                for (var i in arr) {
+                    var tmp = arr[i];
+                    date = encodeURI(tmp['releaseDateStr'])
+                    //var li = "<li style='height: 22px'><b><a href='index.html?releaseDateStr=" + date + "'" + "target='_self'>" + tmp['releaseDateStr'] + "<em>(" + tmp['blogCount'] + ")</em></em>" + "</a></b>"
+                    var li = "<li style='height: 22px'><b><a href='javascript:void(0)' target='_self'>" + tmp['releaseDateStr'] + "<em>(" + tmp['blogCount'] + ")</em></em>" + "</a></b>"
+                    $("#date_list").append(li)
+
+                }
+
+            }
+        });
+        //******************************************************
+    }
+
+    RenderBlogDate()
+
+    // if (releaseDateStr !== null) {
+    //
+    //
+    // }
+
+    $("#date_list>li").click(function () {
+        var x = $("#date_list>li>b>a").text()
+        var date_str = x.substring(0, x.indexOf('('))
+        //清空原来的列表
+        $("#art_list").children("li").remove()
+        p = 1
+        search_url = host + '/api/blog/list.do'
+        load_index_list({
+            "page": "1",
+            "releaseDateStr": date_str
+        }, search_url)
+    })
+
 
 })
